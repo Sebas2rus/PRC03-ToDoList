@@ -18,6 +18,7 @@
   --main-color-fill: rgba(219, 76, 63, 0.4);
   --secondary-color: #ff7575;
   --gray-1: #4d4d4d;
+  --gray-2: #c4c4c4;
   --card-p-color: #0f1217;
   --white: #f3f3f3;
 
@@ -38,7 +39,11 @@
   overflow: hidden;
 }
 
-#side-menu{
+body {
+  background-color: var(--white);
+}
+
+#side-menu {
   display: none;
 }
 
@@ -131,13 +136,13 @@ header {
   align-items: center;
 }
 
-#newTask{
+#newTask {
   display: none;
 }
 
-.newTask{
+.newTask {
   position: absolute;
-  top: calc(50% - 125px) ;
+  top: calc(50% - 125px);
   left: calc(50% - 225px);
   width: 450px;
   height: 250px;
@@ -146,60 +151,122 @@ header {
   border-radius: 10px;
   padding: 2rem;
 
-  .input{
-    border: 0;  
+  .input {
+    border: 0;
     background-color: var(--white);
     width: 100%;
-    padding: .4rem;
+    padding: 0.4rem;
     outline: none;
     margin-bottom: 1rem;
   }
 
-  .date{
+  .date {
     background-color: var(--white);
     cursor: pointer;
   }
-  .priority{
+  .priority {
     background-color: var(--white);
     cursor: pointer;
   }
-  .input:first-child{
-    font-size: 1.1rem; 
+  .input:first-child {
+    font-size: 1.1rem;
     margin-bottom: 0;
   }
-  .buttons{
+  .buttons {
     display: flex;
     align-items: center;
     justify-content: space-around;
     gap: 1rem;
     margin: 2rem 0;
 
-    .cancel{
+    .cancel {
       border: solid 1px var(--gray-1);
     }
-    
-    .submit{
+
+    .submit {
       border: solid 1px var(--main-color);
       background-color: var(--main-color);
       color: var(--white);
-
     }
-    .cancel,.submit{
-      padding: .3rem .5rem;
-      margin: 0 .2rem;
+    .cancel,
+    .submit {
+      padding: 0.3rem 0.5rem;
+      margin: 0 0.2rem;
       cursor: pointer;
     }
   }
-  
 }
 
-.wrap{
+.wrap {
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   background-color: #6b6b6b;
-  opacity: .7;
-  z-index: 20;  
+  opacity: 0.7;
+  z-index: 20;
+}
+
+.content {
+  width: 90%;
+  margin: auto;
+  max-width: 700px;
+  margin-top: 2rem;
+  padding: 0.5rem;
+
+  .header {
+    .date {
+      font-size: 0.9rem;
+    }
+  }
+  .container {
+    /* border: solid 1px red; */
+    margin: 2rem 0;
+    cursor: pointer;
+
+    .date {
+      text-transform: capitalize;
+    }
+
+    .task {
+      display: flex;
+      border-top: solid 1px var(--gray-2);
+      border-bottom: solid 1px var(--gray-2);
+      padding: 0.5rem 0;
+      margin-top: 0.2rem;
+      position: relative;
+
+      .icon {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        border: solid 1px var(--gray-1);
+        margin: 0.4rem 1rem 0;
+      }
+      .project {
+        text-align: end;
+        font-size: 0.8rem;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+      .delete {
+        background-color: var(--main-color);
+        padding: 0rem 1rem;
+        height: 2rem;
+        border-radius: 5px;
+        margin-left: 50%;
+        margin-top: 3%;
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .delete:hover {
+        opacity: 0.9;
+      }
+    }
+  }
 }

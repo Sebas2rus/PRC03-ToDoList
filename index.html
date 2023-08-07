@@ -14,18 +14,19 @@
   <body>
     <header class="header">
       <div class="flex">
-        <li class="item" title="" onclick="showSideBar()"><i class="bi bi-list"></i></li>
+        <li class="item" title="" id="showSideBar"><i class="bi bi-list"></i></li>
         <li class="item"><i class="bi bi-house"></i></li>
       </div>
       <div class="flex">
         <li class="item search"><i class="bi bi-search"></i></li>
-        <li class="item add" onclick="showNewTask()">
+        <li class="item add" id="addNewTask">
           <i class="bi bi-plus-circle"></i>
         </li>
       </div>
     </header>
+
     <div id="side-menu" class="side-menu">
-      <div class="side" id="sideMenuWrap" onclick="showSideBar()"></div>
+      <div class="side" id="sideMenuWrap"></div>
       <ul class="bar">
         <li class="item"><i class="bi bi-archive"></i> &nbsp Principal</li>
         <li class="item"><i class="bi bi-calendar-date"></i> &nbsp Hoy</li>
@@ -44,52 +45,66 @@
       </ul>
     </div>
 
-    <div>
-      <h2>Título</h2>
-      <section>
-        <div>
-          <div>Button</div>
-          <p>Aprender lo básico con la guia</p>
-          <p>Ayer</p>
-        </div>
-        <div>
-          <div>Button</div>
-          <p>Aprender lo básico con la guia</p>
-          <p>Ayer</p>
-        </div>
-      </section>
-      <section>
-        <h3>Nombre de la sección</h3>
-        <div>Button</div>
-        <p>Section twoAprender lo básico con la guia</p>
-        <p>Ayer</p>
-      </section>
+    <div class="content" id="addTask">
+      <div class="expired"></div>
+      <h3 class="header" id="todayHeader">
+        Hoy <span class="date" id="todayDate"></span>
+      </h3>
+      <!-- <section class="container" id="task">
+        <div class="date">Ago 2 ‧ Hoy ‧ miércoles</div>
+        <article class="task">
+          <div class="icon"></div>
+          <div class="data">
+            <h3 class="title">Test</h3>
+            <p class="description">Description</p>
+          </div>
+          <p class="project">Bandeja de entrada</p>
+        </article>
+      </section> -->
     </div>
 
     <div id="newTask">
-      <div class="wrap" onclick="showNewTask()"></div>
+      <div class="wrap" id="closeAddNewTaskWrap"></div>
       <form class="newTask" id="newTaskData">
-        <input class="input" id="name" type="text" placeholder="Nombre de la tarea" />
-        <input class="input" id="description" type="text" placeholder="Descripción" />
-        <input class="date" id="date" type="date" placeholder="Fecha" />
-        <select name="priority" id="priority" class="priority">
+        <input
+          required
+          class="input"
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Nombre de la tarea"
+        />
+        <input
+          required
+          name="description"
+          class="input"
+          id="description"
+          type="text"
+          placeholder="Descripción"
+        />
+        <input class="date" id="date" type="date" defa placeholder="Fecha" />
+        <select required name="priority" id="priority" class="priority">
           <option value="1">Prioridad 1</option>
           <option value="2">Prioridad 2</option>
           <option value="3">Prioridad 3</option>
           <option value="4">Prioridad 4</option>
         </select>
         <div class="buttons">
-          <select name="project" id="project">
+          <select required name="project" id="project">
             <option value="inbox">Bandeja de entrada</option>
           </select>
           <div class="flex">
-            <button class="cancel">Cancelar</button>
-            <button class="submit" type="submit">Añadir Tarea</button>
+            <button class="cancel" id="closeAddNewTask">Cancelar</button>
+            <button class="submit" type="submit" id="addNewTaskButton">
+              Añadir Tarea
+            </button>
+            <button class="submit" id="editTaskButton">Editar Tarea</button>
           </div>
         </div>
       </form>
     </div>
 
-    <script src="src/script.js"></script>
+    <script type="module" src="src/main.js"></script>
+    <!-- <script type="module" src="src/data.js" ></script> -->
   </body>
 </html>
